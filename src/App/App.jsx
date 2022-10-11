@@ -9,6 +9,7 @@ import GoogleLogin from '../routes/GoogleLogin';
 import theme from '../utils/AppTheme';
 import { UserContextProvider } from '../utils/UserContext';
 import GenerateSession from '../routes/GenerateSession';
+import Footer from '../components/footer';
 
 function App() {
   return (<ThemeProvider theme={theme}>
@@ -21,7 +22,7 @@ function App() {
                 <Route exact path="/generateSession" element={<GenerateSession />} />
                 <Route exact path="/google" element={<GoogleLogin />} />
               </Routes> 
-            
+            <Footer/>
             </div>
           </Router>
     </UserContextProvider>

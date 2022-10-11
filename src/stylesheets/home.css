@@ -1,0 +1,148 @@
+.home_banner {
+  display: flex;
+  background: #c3d7e5;
+  height: 50vh;
+  justify-content: space-evenly;
+}
+.home_banner_heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.home_banner_heading h2 {
+  width: 70%;
+  font-size: 2rem;
+  /* text-align: center; */
+  margin-bottom: 1.2rem;
+  text-transform: capitalize;
+}
+.home_banner_heading button {
+  width: 50%;
+  background-color: #01b4c0;
+  color: white;
+  font-size: 1.3rem;
+  text-align: center;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 0.3rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.home_banner_heading button:hover {
+  background-color: #229296;
+  transition: all 1s;
+}
+.home_banner_image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home_banner_image img {
+  height: 90%;
+  width: auto;
+}
+.home_services {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 2.5rem 0rem;
+}
+.home_services_cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.home_services h2 {
+  text-align: center;
+  font-size: 1.7rem;
+}
+.home_services button {
+  width: 15%;
+  background-color: #01b4c0;
+  color: white;
+  font-size: 1.1rem;
+  text-align: center;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 0.3rem 0rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin: auto;
+}
+.home_services button:hover {
+  background-color: #229296;
+  transition: all 1s;
+}
+.home_services_cards div {
+  display: flex;
+  flex-direction: column;
+
+  border-top: 2px solid red;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  flex: 1 1 25%;
+  margin: 3%;
+  padding: 1.2rem;
+  border-radius: 0.3rem;
+}
+.home_services_cards div:nth-child(1){
+    border-top: 2px solid red;
+    
+}
+.home_services_cards div:nth-child(2){
+    border-top: 2px solid #FCAF4A;
+    
+}
+.home_services_cards div:nth-child(3){
+    border-top: 2px solid rgb(133,185,244);
+    
+}
+.home_services_cards div p {
+  color: grey;
+  font-size: 0.85rem;
+  padding: 0.8rem 0rem;
+}
+.svg1{
+    fill: red;
+    font-size: 2.7rem;
+}
+.svg2{
+    fill: #FCAF4A;
+    font-size: 2.7rem;
+}
+.svg3{
+    fill: rgb(133,185,244);
+    font-size: 2.7rem;
+}
+.home_services_cards span{
+    text-align: end;
+    padding: 1rem 1.6rem;
+}
+
+.footer_main{
+    display: flex;
+    flex-direction:column;
+    height: 40vh;
+    background-color: #335F81;
+    /* align-: center; */
+    justify-content: center;
+}
+.footer_main h2{
+    color: aliceblue;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+  text-align: center;
+  margin:  1.5rem auto;
+}
+.footer_main button{
+    width: 15%;
+    background-color: #01b4c0;
+    color: white;
+    font-size: 1.1rem;
+    text-align: center;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 0.3rem 0rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 1.5rem auto;
+}
