@@ -10,8 +10,11 @@ import '../stylesheets/DrawerComp.css';
 import { logout } from '../Api/Data';
 import { UserContext } from '../utils/UserContext';
 import handleGoogleSignIn from '../utils/HandleGoogleSignIn';
+import { useNavigate } from "react-router-dom";
 
 const DrawerComp = () => {
+  let navigate = useNavigate();
+
   const [profileIcon, setProfileIcon] = React.useState(profile);
   const [open, setOpen] = React.useState(false);
   const [user, setUser] = React.useContext(UserContext);
@@ -26,6 +29,7 @@ const DrawerComp = () => {
   const handleLogout = async () => {
     await logout(setUser);
     setProfileIcon(profile);
+    return navigate('/')
   };
 
   return (<>
@@ -42,16 +46,16 @@ const DrawerComp = () => {
           handleGoogleSignIn();
         }}>
           <ListItemText primaryTypographyProps={{ fontSize: '1.2em' }} primary="Login" />
-        </ListItemButton> : <ListItemButton component={Link} onClick={() => setOpen(false)} to="/dashboard">
-          <ListItemText primaryTypographyProps={{ fontSize: '1.2em' }} primary="Dashboard" />
+        </ListItemButton> : <ListItemButton component={Link} onClick={() => setOpen(false)} to="/">
+          <ListItemText primaryTypographyProps={{ fontSize: '1.2em' }} primary="Home" />
         </ListItemButton>}
-        <ListItemButton component={Link} onClick={() => setOpen(false)} to="/lost">
-          <ListItemText primaryTypographyProps={{ fontSize: '1.2em' }} primary="Lost Items" />
+        <ListItemButton component={Link} onClick={() => setOpen(false)} to="/generateSession">
+          <ListItemText primaryTypographyProps={{ fontSize: '1.2em' }} primary="Generate Session" />
         </ListItemButton><ListItemButton component={Link} onClick={() => setOpen(false)}
-                                         to="/found">
-        <ListItemText primaryTypographyProps={{ fontSize: '1.2em' }} primary="Found Items" />
-      </ListItemButton><ListItemButton component={Link} onClick={() => setOpen(false)} to="/report/form">
-        <ListItemText primaryTypographyProps={{ fontSize: '1.2em' }} primary="Report New Item" />
+                                         to="/courses">
+        <ListItemText primaryTypographyProps={{ fontSize: '1.2em' }} primary="Courses" />
+      </ListItemButton><ListItemButton component={Link} onClick={() => setOpen(false)} to="manageStudentRecords">
+        <ListItemText primaryTypographyProps={{ fontSize: '1.2em' }} primary="Manage Student Records" />
       </ListItemButton><ListItemButton component={Link} onClick={() => setOpen(false)}
                                        to="/">
         <ListItemText primaryTypographyProps={{ fontSize: '1.2em' }} primary="About" />
