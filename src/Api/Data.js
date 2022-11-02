@@ -28,12 +28,8 @@ const logout = async (setUser) => {
 };
 
 
-const getSession = async (user) => {
-    return await axios.post(`${baseURL}/session/createSession`,{user}, {withCredentials: true})
-}
 
 
 export {
     sendAuthorizationCode, logout,
-    getSession
 };
