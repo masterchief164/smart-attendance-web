@@ -31,13 +31,7 @@ const GenerateSession = () => {
         }
     }, [session]);
 
-    useEffect(() => {
-        if (isRendered) {
-            if (user === null) {
-                return navigate('/?error=Login-to-proceed')
-            }
-        }
-    }, [isRendered])
+    
 
     const generateQR = async (event) => {
         const data1 = JSON.parse(event.data);
