@@ -4,7 +4,7 @@ const baseURL = import.meta.env.VITE_BACKEND_URL;
 
 const sendAuthorizationCode = async (code, setUser) => {
     try {
-        const res = await axios.post(`${baseURL}/login/googleLogin`, {tokenId: code}, {withCredentials: true});
+        const res = await axios.post(`${baseURL}/auth/googleLogin`, {tokenId: code}, {withCredentials: true});
         localStorage.setItem('loggedIn', JSON.stringify(res.data))
         setUser(res.data);
         // console.log('hereData');

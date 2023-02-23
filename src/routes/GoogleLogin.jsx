@@ -7,7 +7,7 @@ import { UserContext } from '../utils/UserContext';
 
 
 const GoogleLogin = () => {
-  const [, setUser] = React.useContext(UserContext);
+  const [user, setUser] = React.useContext(UserContext);
   useEffect(() => {
     // eslint-disable-next-line no-use-before-define
     login()

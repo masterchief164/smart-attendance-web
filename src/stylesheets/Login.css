@@ -1,0 +1,48 @@
+.login{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login_box {
+  height: 71vh;
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background: white;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+.login_box h2{
+  text-align: center;
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 25px;
+line-height: 32px;
+}
+.glogin{
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  margin: 0.8rem 0rem;
+  width: 343px;
+height: 40px;
+background: #FFFFFF;
+border: 1px solid #4285F4;
+border-radius: 160px;
+cursor: pointer;
+}
+.gicon{
+  width: 2rem;
+/* height: 13px; */
+margin: 0.05rem;
+}

@@ -1,0 +1,158 @@
+.dashboard {
+  min-height: 100vh;
+  background: linear-gradient(81.62deg, #313860 2.25%, #151928 79.87%);
+  /* border-radius: 12px; */
+  display: flex;
+}
+.dleft {
+  width: 18%;
+  /* border: 1px solid white; */
+}
+.dright {
+  width: 82%;
+  padding: 2rem;
+  /* border: 1px solid white; */
+}
+.righsb {
+  background: linear-gradient(
+    112.83deg,
+    rgba(255, 255, 255, 0.574) 0%,
+    rgba(255, 255, 255, 0.56) 110.84%
+  );
+  border: 1.5px solid #ffffff;
+  box-shadow: 0px 2px 5.5px rgba(0, 0, 0, 0.02);
+  backdrop-filter: blur(7.5px);
+  height: 100%;
+  padding: 2rem 8rem;
+  /* Note: backdrop-filter has minimal browser support */
+  border-radius: 16px;
+}
+.righsb h2 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 39px;
+
+  /* identical to box height */
+
+  color: #2c3256;
+}
+.righsb h4 {
+  font-family: "Inter";
+  font-style: normal;
+  margin-top: 4rem;
+  font-weight: 700;
+  font-size: 20px;
+  color: #2c3256;
+}
+
+.dleft {
+  padding: 2rem 3rem;
+}
+.dboard {
+  display: flex;
+  flex-direction: column;
+}
+
+.dboard img {
+  /* width: 100%; */
+  width: 7rem;
+  height: 8rem;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+}
+
+.dboard h4 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 140%;
+  color: #ffffff;
+}
+.dboard h5 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 140%;
+  margin: 0.2rem 0;
+  /* identical to box height, or 20px */
+
+  /* Gray/Gray-500 */
+  color: #718096;
+}
+
+.dmodules {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  /* padding-right: 2rem; */
+}
+/* button:hover {
+  width: 136px;
+  height: 35px;
+  margin: 0.5rem 0rem;
+  color: #151928;
+  background: #ffffff;
+
+  border: none;
+  box-shadow: 0px 2px 5.5px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  font-family: "Inter";
+
+  font-style: normal;
+  font-weight: 700;
+
+  color: #2d3748;
+} */
+
+.dmodules Link {
+  width: 10rem;
+  font-size: 1.15rem;
+  font-family: "Inter";
+  height: 2.5rem;
+  margin: 0.5rem 0rem;
+  border: none;
+  border-radius: 8px;
+  /* color: whitesmoke; */
+}
+
+.attendance-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 12px;
+  flex: 1 1 44%;
+  margin: 1rem 6% 1rem 0%;
+  position: relative;
+}
+.attendance-card-1 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.attendance-card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.attendance-card-1 img {
+  height: 50px;
+  margin: 5px 0.5rem 5px 0px;
+  width: auto;
+}
+.attendance-card-icon {
+  position: absolute;
+  top: 20px;
+  cursor: pointer;
+  right: 20px;
+}
+.green {
+  color: green;
+  font-weight: bold;
+}
+.purple {
+  font-weight: bold;
+  color: purple;
+}
