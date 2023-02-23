@@ -43,7 +43,7 @@ export const Login = () => {
           Login with google
         </div> */}
       </div>
-      hello
+      {/* hello */}
     </div>
   );
 };

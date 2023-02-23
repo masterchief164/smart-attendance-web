@@ -10,7 +10,7 @@ const CourseCard = ({courseId}) => {
       <div className="course-card-icon">
         <BsThreeDotsVertical />
         <div className="dropdown">
-          <Link>Check Attendance</Link>
+          <Link>Check Attendance</Link><hr/>
           <Link to={`/generatesession/${courseId}`}>Generate Session</Link>
         </div>
       </div>

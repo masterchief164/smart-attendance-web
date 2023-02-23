@@ -15,7 +15,6 @@ useEffect(() => {
     .then();
 }, []);
 useEffect(() => {
-  console.log(`${baseURL}/login/googleLogin`);
   if (user) {
     localStorage.setItem('loggedIn', JSON.stringify(user));
   }
@@ -53,12 +52,6 @@ const handleLogout = async () => {
             <Link to="/">
               <AiFillApple />
                Settings
-
-             
-            </Link>
-            <Link to="/">
-              <AiFillApple />
-               Generate Session
 
              
             </Link>
