@@ -47,10 +47,6 @@ export const Attendance = () => {
                 <AiFillApple />
                 Settings
               </Link>
-              <Link to="/">
-                <AiFillApple />
-                Generate Session
-              </Link>
               <Link onClick={handleLogout}>
                 <AiFillApple />
                 Logout

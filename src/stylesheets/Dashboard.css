@@ -205,3 +205,9 @@
 .course-card-icon .dropdown a{
   display: block;
 }
+.course-card hr{
+  width: 100%;
+}
+.course-card .dropdown a:hover{
+  font-weight: bold;
+}
