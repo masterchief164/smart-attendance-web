@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 const baseURL = import.meta.env.VITE_BACKEND_URL;
-
 const sendAuthorizationCode = async (code, setUser) => {
     try {
         const res = await axios.post(`${baseURL}/auth/googleLogin`, {tokenId: code}, {withCredentials: true});
@@ -9,6 +8,7 @@ const sendAuthorizationCode = async (code, setUser) => {
         setUser(res.data);
         // console.log('hereData');
         localStorage.removeItem('state');
+        await getCourses()
         return res.data;
     } catch (err) {
         console.log(err);
@@ -27,9 +27,18 @@ const logout = async (setUser) => {
         });
 };
 
+const getCourses=async()=>{
+    try {
+        const res = await axios.get(`${baseURL}/course`, {withCredentials: true});
+        // console.log(res.data);
+        return res.data;
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
 
 export {
-    sendAuthorizationCode, logout,
+    sendAuthorizationCode, logout,getCourses
 };

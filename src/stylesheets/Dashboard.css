@@ -1,147 +1,19 @@
-.dashboard {
-  min-height: 100vh;
-  background: linear-gradient(81.62deg, #313860 2.25%, #151928 79.87%);
-  /* border-radius: 12px; */
-  display: flex;
-}
-.dleft {
-  width: 18%;
-  /* border: 1px solid white; */
-}
-.dright {
-  width: 82%;
-  padding: 2rem;
-  /* border: 1px solid white; */
-}
-.righsb {
-  background: linear-gradient(
-    112.83deg,
-    rgba(255, 255, 255, 0.574) 0%,
-    rgba(255, 255, 255, 0.56) 110.84%
-  );
-  border: 1.5px solid #ffffff;
-  box-shadow: 0px 2px 5.5px rgba(0, 0, 0, 0.02);
-  backdrop-filter: blur(7.5px);
-  height: 100%;
-  padding: 2rem 8rem;
-  /* Note: backdrop-filter has minimal browser support */
-  border-radius: 16px;
-}
-.righsb h2 {
+
+.dashboard h2 {
   font-family: "Inter";
   font-style: normal;
   font-weight: 600;
   font-size: 32px;
   line-height: 39px;
-
-  /* identical to box height */
-
   color: #2c3256;
 }
-.righsb h4 {
+.dashboard h4 {
   font-family: "Inter";
   font-style: normal;
   margin-top: 4rem;
   font-weight: 700;
   font-size: 20px;
   color: #2c3256;
-}
-
-.dleft {
-  padding: 2rem 3rem;
-}
-.dboard {
-  display: flex;
-  flex-direction: column;
-}
-
-.dboard img {
-  /* width: 100%; */
-  width: 7rem;
-  height: 8rem;
-  margin-bottom: 2rem;
-  border-radius: 10px;
-}
-
-.dboard h4 {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 1.6rem;
-  line-height: 140%;
-  color: #ffffff;
-}
-.dboard h5 {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 140%;
-  margin: 0.2rem 0;
-  /* identical to box height, or 20px */
-
-  /* Gray/Gray-500 */
-  color: #718096;
-}
-
-.dmodules {
-  margin-top: 4rem;
-  display: flex;
-  flex-direction: column;
-  text-transform: uppercase;
-  
-  /* padding-right: 2rem; */
-}
-.dmodules a:hover {
-  
-  color: #151928;
-  background: #ffffff;
-
-  border: none;
-  box-shadow: 0px 2px 5.5px rgba(0, 0, 0, 0.06);
-  border-radius: 8px;
-  
-  font-size: 1.15rem;
-  font-family: "Inter";
-  /* font-style: normal; */
-  /* padding-right:12px ; */
-}
-.dmodules .selected{
-  color: #151928;
-  background: #ffffff;
-
-  border: none;
-  box-shadow: 0px 2px 5.5px rgba(0, 0, 0, 0.06);
-  border-radius: 8px;
-  
-  font-size: 1.15rem;
-  font-family: "Inter";
-} 
-.dmodules .selected svg{
-  fill: black;
-}
-.dmodules a:hover svg{
-  fill: black;
-}
-.dmodules a{
-  /* width: 10rem; */
-  font-size: 1.15rem;
-  font-family: "Inter";
-  /* height: 2.5rem; */
-  margin: 0.5rem 0rem;
-  border: none;
-  border-radius: 8px;
-  color: whitesmoke;
-  display: flex;
-  align-items: center;
-  padding: 8px 1px;
-}
-.dmodules svg{
-  /* color: whitesmoke; */
-  /* background-color: white; */
-  fill:white;
-  background-color: inherit;
-  margin: 0px 8px;
 }
 .course-card-3 {
   margin-top: 10px;
@@ -152,8 +24,9 @@
   background-color: white;
   border-radius: 8px;
   padding: 12px;
-  flex: 1 1 44%;
-  margin: 1rem 6% 1rem 0%;
+  width: calc(50% - 1.5rem);
+  justify-content: space-between;
+  margin: 1rem 1.5rem 1rem 0rem;
   position: relative;
 }
 .course-card-1 {
@@ -190,11 +63,8 @@
   position: absolute;
   top: 0px;
   left: 0;
-  
   z-index: 4;
   white-space: nowrap;
-  /* width: 5rem; */
-  /* right: 0px; */
   padding: 0.3rem;
   box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
   border-radius: 0.2rem;

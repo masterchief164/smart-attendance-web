@@ -1,0 +1,15 @@
+.not-found{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+}
+.not-found a{
+    border: 2px solid black;
+    padding: 10px;
+    margin-top: 20px;
+}
+.not-found h1{
+    font-size: 50px;
+}
