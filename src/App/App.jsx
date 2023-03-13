@@ -22,14 +22,18 @@ import { GenerateSession2 } from "../routes/GenerateSession2";
 import initializeApp from "../utils/initializeApp";
 import { NotFound } from "../routes/404";
 import { getCourses } from "../Api/Data";
+import { CourseForm } from "../routes/CourseForm";
+import { StudentForm } from "../routes/Studentform";
+import { Setting } from "../routes/Setting";
 
 function App() {
   const [user, setUser, courses, setCourses] = React.useContext(UserContext);
   useEffect(() => {
+    if(user!==null&&courses==null)
     getCourses().then((c) => {
       setCourses(c);
     });
-  }, []);
+  }, [user]);
   return (
     <ThemeProvider theme={theme}>
       
@@ -44,7 +48,7 @@ function App() {
               />
               <Route
                 exact
-                path="/attendance"
+                path="/attendance/:id"
                 element={user ? <Attendance /> : <Navigate to="/login" />}
               />
               <Route
@@ -52,7 +56,24 @@ function App() {
                 path="/generateSession/:id"
                 element={user ? <GenerateSession2 /> : <Navigate to="/login" />}
               />
+               <Route
+                exact
+                path="/addcourse"
+                element={user ? <CourseForm /> : <Navigate to="/login" />}
+              />
+               <Route
+                exact
+                path="/addstudent/:id"
+                element={user ? <StudentForm /> : <Navigate to="/login" />}
+              />
+               <Route
+                exact
+                path="/setting"
+                element={user ? <Setting /> : <Navigate to="/login" />}
+              />
               {/* <Route exact path="/generateSession" element={<GenerateSession />} /> */}
+               
+
               <Route exact path="/google" element={<GoogleLogin />} />
               <Route exact path="/login" element={user ? <Navigate to="/" /> : <Login/>} />
               <Route path='*' element={<NotFound />}/>

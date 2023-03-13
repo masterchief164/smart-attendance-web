@@ -66,6 +66,14 @@
   border: none;
   border-radius: 8px;
 }
+
+.nav_link_active{
+  color: #151928;
+  background: #ffffff;
+  border: none;
+  border-radius: 8px;
+}
+
 .nav_links a:hover svg {
   fill: black;
 }

@@ -81,3 +81,15 @@
 .course-card .dropdown a:hover{
   font-weight: bold;
 }
+.course-add{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+cursor: pointer;
+height: ;
+}
+.course-add svg{
+  font-size: 3rem;
+  
+}

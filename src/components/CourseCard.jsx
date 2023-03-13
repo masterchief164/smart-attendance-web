@@ -2,15 +2,15 @@ import React from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { Link } from "react-router-dom";
 const CourseCard = ({courseId,course}) => {
-  
-  console.log(course);
   return (
     <div className="course-card">
       <div className="course-card-icon">
         <BsThreeDotsVertical />
         <div className="dropdown">
-          <Link>Check Attendance</Link><hr/>
-          <Link to={`/generatesession/${course._id}`}>Generate Session</Link>
+          <Link to={`/attendance/${course._id}`}>Check Attendance</Link><hr/>
+          <Link to={`/generatesession/${course._id}`}>Generate Session</Link><hr/>
+
+          <Link to={`/addstudent/${course._id}`}>Add student</Link>
         </div>
       </div>
       <div className="course-card-1">

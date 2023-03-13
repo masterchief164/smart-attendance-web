@@ -4,7 +4,7 @@ import { logout } from "../Api/Data";
 import { UserContext } from "../utils/UserContext";
 import { AiFillApple } from "react-icons/ai";
 import '../stylesheets/Nav.css'
-const Nav = () => {
+const Nav = ({section}) => {
   let navigate = useNavigate();
   const [user, setUser] = React.useContext(UserContext);
   console.log(user.picture);
@@ -18,8 +18,8 @@ const Nav = () => {
         <img className="profileimg" src={user.picture} alt="" />
         <h4>{user.name}</h4>
         <h5>{user.roll}</h5>
-        <div className="nav_links">
-          <Link to="/">
+        <div className="nav_links " >
+          <Link to="/"  >
             <AiFillApple />
             Courses
           </Link>
@@ -28,7 +28,7 @@ const Nav = () => {
             Attendance
           </Link>
 
-          <Link to="/">
+          <Link to="/setting">
             <AiFillApple />
             Settings
           </Link>
