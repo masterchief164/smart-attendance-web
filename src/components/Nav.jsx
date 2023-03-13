@@ -1,164 +1,45 @@
-import React, { useEffect } from 'react';
-import {
-  AppBar, Avatar, Divider, IconButton, ListItemIcon, Menu, MenuItem, Tab, Tabs, Toolbar, useMediaQuery,
-} from '@mui/material';
-import { Link } from 'react-router-dom';
-import CollegeIcon from '../assets/iiitdmj.svg';
-import '../stylesheets/Nav.css';
-import GoogleIcon from '../assets/google.png';
-import DrawerComp from './DrawerComp.jsx';
-import { UserContext } from '../utils/UserContext.jsx';
-import initializeApp from '../utils/initializeApp';
-import { logout } from '../Api/Data';
-import handleGoogleSignIn from '../utils/HandleGoogleSignIn';
-import {Logout} from '@mui/icons-material';
-import { useNavigate } from "react-router-dom";
-
-
-const Nav = () => {
+import React from "react";
+import { useNavigate,Link } from "react-router-dom";
+import { logout } from "../Api/Data";
+import { UserContext } from "../utils/UserContext";
+import { AiFillApple } from "react-icons/ai";
+import '../stylesheets/Nav.css'
+const Nav = ({section}) => {
   let navigate = useNavigate();
-
-  
-
-  const [user, setUser, pageNumber, setPageNumber] = React.useContext(UserContext);
-  const isSmall = useMediaQuery('(max-width:900px)');
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  useEffect(() => {
-    initializeApp(setUser)
-      .then();
-  }, []);
-
-  useEffect(() => {
-    if (user) {
-      localStorage.setItem('loggedIn', JSON.stringify(user));
-    }
-  }, [user]);
-
+  const [user, setUser] = React.useContext(UserContext);
+  console.log(user.picture);
   const handleLogout = async () => {
     await logout(setUser);
-    return navigate('/')
-
+    return navigate("/");
   };
+  return (
+    <div className="nav_container">
+      <div className="nav">
+        <img className="profileimg" src={user.picture} alt="" />
+        <h4>{user.name}</h4>
+        <h5>{user.roll}</h5>
+        <div className="nav_links " >
+          <Link to="/"  >
+            <AiFillApple />
+            Courses
+          </Link>
+          <Link to="/attendance">
+            <AiFillApple />
+            Attendance
+          </Link>
 
-  return (<>
-    <AppBar position="static" sx={{
-      background: '#fff',
-      padding: '0.5em 2em',
-    }}>
-      <Toolbar>
-        <IconButton sx={{ background: '#5bc5f5' }} component={Link} to={'/'}
-                    onClick={() => setPageNumber(0)}>
-          <img src={CollegeIcon} alt="IIITDMJ" />
-        </IconButton>
-        {!isSmall ? <>
-          <Tabs value={pageNumber} onChange={(e, val) => setPageNumber(val)}
-                indicatorColor={'primary'}>
-            <Tab component={Link} to={'/'} label="Home" sx={{
-              fontSize: '1.1vw',
-              margin: ' 0 2vw',
-            }} />
-            <Tab component={Link} to={'/generateSession'} label="Generate Session"
-                 sx={{
-                   fontSize: '1.1vw',
-                   margin: ' 0 2vw',
-                 }} />
-            <Tab component={Link} to={'/found'} label="Courses"
-                 sx={{
-                   fontSize: '1.1vw',
-                   margin: ' 0 2vw',
-                 }} />
-            <Tab component={Link} to={'/report/form'} label="Manage Student Records"
-                 sx={{
-                   fontSize: '1.1vw',
-                   margin: ' 0 2vw',
-                 }} />
-            <Tab component={Link} to={'/'} label="About" sx={{
-              fontSize: '1.1vw',
-              margin: ' 0 2vw',
-            }} />
-
-          </Tabs>
-          {(user == null) ? <IconButton
-                  sx={{
-                    marginLeft: 'auto',
-                    height: 'calc(max(3vw, 5vh))',
-                    width: 'calc(max(3vw, 5vh))',
-                  }}
-                  onClick={handleGoogleSignIn}>
-                <img src={GoogleIcon} alt={'Google Icon'} />
-              </IconButton>
-              :
-          <>
-          <IconButton
-              sx={{
-                marginLeft: 'auto',
-                height: 'calc(max(3vw, 5vh))',
-                width: 'calc(max(3vw, 5vh))',
-              }}
-              onClick={handleClick}>
-            <img style={{borderRadius: '50%'}} src={user.picture} referrerPolicy='no-referrer' alt={'Google Icon'} />
-          </IconButton>
-
-          <Menu
-              anchorEl={anchorEl}
-              id="account-menu"
-              open={open}
-              onClose={handleClose}
-              onClick={handleClose}
-              PaperProps={{
-                elevation: 0,
-                sx: {
-                  overflow: 'visible',
-                  filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-                  mt: 1.5,
-                  '& .MuiAvatar-root': {
-                    width: 32,
-                    height: 32,
-                    ml: -0.5,
-                    mr: 1,
-                  },
-                  '&:before': {
-                    content: '""',
-                    display: 'block',
-                    position: 'absolute',
-                    top: 0,
-                    right: 14,
-                    width: 10,
-                    height: 10,
-                    bgcolor: 'background.paper',
-                    transform: 'translateY(-50%) rotate(45deg)',
-                    zIndex: 0,
-                  },
-                },
-              }}
-              transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-              anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}>
-
-            <MenuItem component={Link} to={'/dashboard'}>
-              <Avatar /> Dashboard
-            </MenuItem>
-            <Divider />
-            <MenuItem onClick={handleLogout}>
-              <ListItemIcon>
-                <Logout fontSize="small" />
-              </ListItemIcon>
-              Logout
-            </MenuItem>
-          </Menu>
-          </>}
-        </> : <DrawerComp />}
-      </Toolbar>
-    </AppBar>
-
-  </>);
+          <Link to="/setting">
+            <AiFillApple />
+            Settings
+          </Link>
+          <Link onClick={handleLogout}>
+            <AiFillApple />
+            Logout
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Nav;

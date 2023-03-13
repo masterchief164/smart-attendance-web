@@ -1,12 +1,18 @@
-import React from 'react';
+import React from "react";
 
 export const UserContext = React.createContext();
 
 export const UserContextProvider = ({ children }) => {
-  const [user, setUser] = React.useState(null);
-  const [pageNumber, setPageNumber] = React.useState(0);
+  const [user, setUser] = React.useState(
+    (localStorage.getItem("loggedIn") != null &&
+      new Date(JSON.parse(localStorage.getItem("loggedIn")).exp).getTime() >
+        new Date().getTime())?JSON.parse(localStorage.getItem("loggedIn")):null
+  );
+  const [courses, setCourses] = React.useState(null);
   return (
-    <UserContext.Provider value={[user, setUser, pageNumber, setPageNumber]}>
+    <UserContext.Provider
+      value={[user, setUser, courses, setCourses]}
+    >
       {children}
     </UserContext.Provider>
   );

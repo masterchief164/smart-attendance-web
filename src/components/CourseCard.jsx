@@ -1,17 +1,16 @@
 import React from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { Link } from "react-router-dom";
-const CourseCard = ({courseId}) => {
-
-  
-  
+const CourseCard = ({courseId,course}) => {
   return (
     <div className="course-card">
       <div className="course-card-icon">
         <BsThreeDotsVertical />
         <div className="dropdown">
-          <Link>Check Attendance</Link><hr/>
-          <Link to={`/generatesession/${courseId}`}>Generate Session</Link>
+          <Link to={`/attendance/${course._id}`}>Check Attendance</Link><hr/>
+          <Link to={`/generatesession/${course._id}`}>Generate Session</Link><hr/>
+
+          <Link to={`/addstudent/${course._id}`}>Add student</Link>
         </div>
       </div>
       <div className="course-card-1">
@@ -19,7 +18,7 @@ const CourseCard = ({courseId}) => {
           src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60"
           style={{ borderRadius: "10px" }}
         />
-        <div>Slack Bot</div>
+        <div>{course.name}</div>
       </div>
       <div className="course-card-2">
         <p>
@@ -30,8 +29,8 @@ const CourseCard = ({courseId}) => {
       <hr />
       <div className="course-card-3">
         <div>
-          6<br />
-          participants
+          {course.students.length}<br />
+          participant(s)
         </div>
         <div>
           14:02:30

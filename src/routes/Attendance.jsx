@@ -1,70 +1,49 @@
-import React, { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "../stylesheets/AttendanceDashboard.css";
-import { AiFillApple } from "react-icons/ai";
 import AttendanceCard from "../components/AttendanceCard";
+import Nav from "../components/Nav";
+import { getAttendance } from "../Api/Data";
 import { UserContext } from "../utils/UserContext";
-import initializeApp from "../utils/initializeApp";
 export const Attendance = () => {
-  let navigate = useNavigate();
-  const [user, setUser] = React.useContext(UserContext);
-
+  const navigate=useNavigate()
+  const [attendance, setAttendance] = useState(null);
+  const [courseId, setCourseId] = useState(useParams().id);
+  const [user, setUser, courses, setCourses] = React.useContext(UserContext);
+  const [students, setStudents] = useState(null)
   useEffect(() => {
-    initializeApp(setUser)
-      .then();
+    getAttendance(courseId).then((c) => {
+      console.log(c);
+      setAttendance(c)
+    });
   }, []);
   useEffect(() => {
-    // console.log(`${baseURL}/login/googleLogin`);
-    if (user) {
-      localStorage.setItem('loggedIn', JSON.stringify(user));
+    if (courses != null) {
+      var result = courses.find(obj => {
+        return obj._id === courseId
+      })
+      console.log(result);
+      if(!result)navigate("404")
+      else setStudents(result.students.length)
     }
-  }, [user]);
-
-  const handleLogout = async () => {
-    await logout(setUser);
-    await navigate("/login");
-  };
-
+  }, [courses]);
+  console.log(courses);
   return (
-    <div className="dashboard">
-      {user && (
-        <div className="dleft">
-          <div className="dboard">
-            <img className="profileimg" src={user.picture} alt="" />
-            <h4>{user.name}</h4>
-            <h5>{user.roll}</h5>
-            <div className="dmodules">
-              <Link to="/">
-                <AiFillApple />
-                Courses
-              </Link>
-              <Link to="/attendance" className="selected">
-                <AiFillApple />
-                Attendence
-              </Link>
-
-              <Link to="/">
-                <AiFillApple />
-                Settings
-              </Link>
-              <Link onClick={handleLogout}>
-                <AiFillApple />
-                Logout
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
-      <div className="dright">
-        <div className="righsb">
+    <div className="page_layout">
+      <Nav section={2} />
+      <div className="page_content">
+        <div className="attendance">
           <h2>CSE department</h2>
           <h4>Attendence</h4>
-          <div className="attendance-card-container">
-            <AttendanceCard />
-            <AttendanceCard />
-            <AttendanceCard />
-            <AttendanceCard />
-          </div>
+          {attendance ? (
+            <div className="attendance-card-container">
+              {attendance.map((att)=>{
+                return (<AttendanceCard key={att._id} {...att} students={students}/>)
+              })}
+            </div>
+          ) : (
+            <h1>Loading...</h1>
+          )}
         </div>
       </div>
     </div>

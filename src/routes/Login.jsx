@@ -2,10 +2,8 @@ import React, { useEffect } from "react";
 import bg from "../assets/bg.png";
 import "../stylesheets/Login.css";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
 import handleGoogleSignIn from "../utils/HandleGoogleSignIn";
 import { UserContext } from '../utils/UserContext.jsx';
-import { useNavigate } from "react-router-dom";
 import initializeApp from '../utils/initializeApp';
 export const Login = () => {
   const [user, setUser] = React.useContext(UserContext);
@@ -19,7 +17,6 @@ export const Login = () => {
       localStorage.setItem('loggedIn', JSON.stringify(user));
     }
   }, [user]);
-  let navigate = useNavigate();
   return (
     <div
       className="login"
@@ -34,16 +31,7 @@ export const Login = () => {
           <FcGoogle className="gicon" />
          Login with google
         </div>
-        {/* <div className="glogin">
-          <FcGoogle className="gicon"/>
-          Login with google
-        </div>
-        <div className="glogin">
-          <FcGoogle className="gicon"/>
-          Login with google
-        </div> */}
       </div>
-      {/* hello */}
     </div>
   );
 };
