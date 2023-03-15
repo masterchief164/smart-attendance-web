@@ -23,7 +23,7 @@ import initializeApp from "../utils/initializeApp";
 import { NotFound } from "../routes/404";
 import { getCourses } from "../Api/Data";
 import { CourseForm } from "../routes/CourseForm";
-import { StudentForm } from "../routes/Studentform";
+import { StudentForm } from "../routes/StudentForm";
 import { Setting } from "../routes/Setting";
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
   }, [user]);
   return (
     <ThemeProvider theme={theme}>
-      
+
         <Router>
           <div className="App">
             {/* <Nav /> */}
@@ -72,7 +72,7 @@ function App() {
                 element={user ? <Setting /> : <Navigate to="/login" />}
               />
               {/* <Route exact path="/generateSession" element={<GenerateSession />} /> */}
-               
+
 
               <Route exact path="/google" element={<GoogleLogin />} />
               <Route exact path="/login" element={user ? <Navigate to="/" /> : <Login/>} />

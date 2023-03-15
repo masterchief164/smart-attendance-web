@@ -75,12 +75,12 @@ const findStudent = async (email) => {
     console.log(error);
   }
 };
-const addStudent = async (id) => {
+const addStudent = async (id, setCourses) => {
   try {
     const body = {
-      
+      student: id,
     };
-    const res = await axios.put(`${baseURL}/course/${id}`, body, {
+    const res = await axios.patch(`${baseURL}/course/${id}`, body, {
       withCredentials: true,
     });
     setCourses((prev) => [...prev, res.data]);
