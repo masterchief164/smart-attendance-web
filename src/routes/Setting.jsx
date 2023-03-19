@@ -16,36 +16,40 @@ export const Setting = () => {
       <Nav section={3} />
 
       <div className="page_content ">
-
-        <div className="setting-card-container setting-main">
-
-          <div className="setting-img-container">
-            <img src="https://www.shutterstock.com/image-photo/head-shot-portrait-close-smiling-260nw-1714666150.jpg" />
+        <div className="setting-up-1">
+          <img src={user.picture} />
+          <div className="setting-details">
+            <p>
+              Name : &nbsp;
+              <span className="white">{user.name}</span>
+            </p>
+            <p>
+              Roll ID : &nbsp;
+              <span className="white">{user.roll}</span>
+            </p>
+            <p>
+              Account Type : &nbsp;
+              <span className="white">Instructor</span>
+            </p>
+          
+            
           </div>
-          <div className="setting-content">
-            <div className="setting-card-details">
-              <h3>Robert Downey Jr</h3>
-              <h4>Web Developer</h4>
-
-              <ul className="setting-social-media-links-container">
-                <li>
-                  <a href="">
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="">
-                    <i className="fab fa-linkedin-in"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="">
-                    <i className="fab fa-facebook-f"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
+        </div>
+        <div className="setting-up-2">
+        <div className="setting-details">
+            <p>
+              Number of Courses : &nbsp;
+              <span className="white">{courses.length}</span>
+            </p>
+            <p>
+              Session Taken : &nbsp;
+              <span className="white">45</span>
+            </p>
+           
+          
+            
           </div>
+        
         </div>
       </div>
     </div>

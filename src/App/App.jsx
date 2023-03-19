@@ -25,6 +25,7 @@ import { getCourses } from "../Api/Data";
 import { CourseForm } from "../routes/CourseForm";
 import { StudentForm } from "../routes/StudentForm";
 import { Setting } from "../routes/Setting";
+import { StudentDashboard } from "../routes/StudentDashboard";
 
 function App() {
   const [user, setUser, courses, setCourses] = React.useContext(UserContext);
@@ -65,6 +66,11 @@ function App() {
                 exact
                 path="/addstudent/:id"
                 element={user ? <StudentForm /> : <Navigate to="/login" />}
+              />
+                <Route
+                exact
+                path="/studentdashboard/:courseId/:studentId"
+                element={user ? <StudentDashboard  courses={courses}/> : <Navigate to="/login" />}
               />
                <Route
                 exact

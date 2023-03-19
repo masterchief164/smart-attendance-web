@@ -75,17 +75,47 @@ const findStudent = async (email) => {
     console.log(error);
   }
 };
-const addStudent = async (id, setCourses) => {
+const addStudent = async (courseId, email) => {
   try {
     const body = {
-      student: id,
+      student: email,
     };
-    const res = await axios.patch(`${baseURL}/course/${id}`, body, {
+    const res = await axios.patch(`${baseURL}/course/${courseId}`, body, {
       withCredentials: true,
     });
-    setCourses((prev) => [...prev, res.data]);
+    console.log(res);
+    // setCourses((prev) => [...prev, res.data]);
   } catch (error) {
     console.log(error);
   }
 };
-export { sendAuthorizationCode, logout, getCourses, AddCourse, getAttendance,findStudent,addStudent };
+const getstudentattendence = async (courseId, studentEmailId) => {
+  console.log("getattendance");
+  try {
+    const body = {
+   
+    };
+    console.log(body);
+    const res = await axios.get(`${baseURL}/course/${courseId}&studentEmailId=${studentEmailId}`, body, {
+      withCredentials: true,
+    });
+
+
+    console.log(res);
+    console.log(res.data);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export {
+  getstudentattendence,
+  sendAuthorizationCode,
+  logout,
+  getCourses,
+  AddCourse,
+  getAttendance,
+  findStudent,
+  addStudent,
+};
