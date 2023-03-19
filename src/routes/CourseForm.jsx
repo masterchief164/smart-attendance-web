@@ -14,7 +14,6 @@ export const CourseForm = () => {
   const [user, setUser, courses, setCourses] = React.useContext(UserContext);
   const initials = {
     name: "",
-    
   };
   const [newCourse, setNewCourse] = useState(initials);
   const onValueChange = (e) => {

@@ -9,7 +9,6 @@ const CourseCard = ({courseId,course}) => {
         <div className="dropdown">
           <Link to={`/attendance/${course._id}`}>Check Attendance</Link><hr/>
           <Link to={`/generatesession/${course._id}`}>Generate Session</Link><hr/>
-
           <Link to={`/addstudent/${course._id}`}>Add student</Link>
         </div>
       </div>

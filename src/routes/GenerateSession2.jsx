@@ -63,7 +63,7 @@ export const GenerateSession2 = () => {
   const sessionHandler = async () => {
     setSession(
       new EventSource(
-        `${import.meta.env.VITE_BACKEND_URL}/session/createSession`,
+        `${import.meta.env.VITE_BACKEND_URL}/session/createSession?courseId=${courseId}`,
         { withCredentials: true }
       )
     );
@@ -73,7 +73,7 @@ export const GenerateSession2 = () => {
   const stopSessionHandler = async () => {
     session.close();
     setQr(null);
-    // console.log("es closed")
+    console.log("es closed")
   };
   return (
     <div className="page_layout">

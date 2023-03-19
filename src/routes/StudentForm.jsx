@@ -15,20 +15,30 @@ export const StudentForm = () => {
   const [courseId, setCourseId] = useState(useParams().id);
 const [email, setEmail] = useState("")
   const [loading, setLoading] = useState(courses == null);
-  useEffect(() => {
-    if (courses != null) {
-      setLoading(false);
-      if (!courses.some((k) => k._id == courseId)) {
-        navigate("/404");
-      }
-    }
-  }, [courses]);
-  let navigate = useNavigate();
-  const submit=()=>{
-    findStudent(email).then((k)=>{
-      if(!k)window.alert("Student with this email dosen't exist");
-      else addStudent().then();
-    })
+
+
+  // useEffect(() => {
+  //   if (courses != null) {
+  //     setLoading(false);
+  //     if (!courses.some((k) => k._id == courseId)) {
+  //       navigate("/404");
+  //     }
+  //   }
+  // }, [courses]);
+
+
+ 
+
+
+  const submit=async()=>{
+    console.log(email);
+   await addStudent(courseId,email);
+   setEmail("");
+  
+    // findStudent(email).then((k)=>{
+    //   if(!k)window.alert("Student with this email dosen't exist");
+    //   else addStudent().then();
+    // })
   }
   return (
     <div className="course-form-body">
