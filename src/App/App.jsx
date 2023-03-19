@@ -37,7 +37,7 @@ function App() {
   }, [user]);
   return (
     <ThemeProvider theme={theme}>
-      
+
         <Router>
           <div className="App">
             {/* <Nav /> */}
@@ -78,7 +78,7 @@ function App() {
                 element={user ? <Setting /> : <Navigate to="/login" />}
               />
               {/* <Route exact path="/generateSession" element={<GenerateSession />} /> */}
-               
+
 
               <Route exact path="/google" element={<GoogleLogin />} />
               <Route exact path="/login" element={user ? <Navigate to="/" /> : <Login/>} />
