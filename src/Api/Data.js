@@ -90,15 +90,12 @@ const addStudent = async (courseId, email) => {
   }
 };
 const getstudentattendence = async (courseId, studentEmailId) => {
-  console.log("getattendance");
+
   try {
     const res = await axios.get(`${baseURL}/course/${courseId}/${encodeURIComponent(studentEmailId)}`, {
       withCredentials: true,
     });
 
-
-    console.log(res);
-    console.log(res.data);
     return res.data;
   } catch (error) {
     console.log(error);
