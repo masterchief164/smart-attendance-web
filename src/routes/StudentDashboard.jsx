@@ -9,20 +9,24 @@ import { getstudentattendence } from "../Api/Data";
 export const StudentDashboard = ({ courses }) => {
   let Navigate = useNavigate();
 
+  
   const [allstudents, setAllStudents] = useState([]);
   const [courseId, setCourseId] = useState(useParams().courseId);
   const [courseName, setCourseName] = useState("");
   const [studentId, setStudentId] = useState(useParams().studentId);
-  const [present,setPresent]=useState(50);
-  const [total,setTotal]=useState(50);
+  const [present, setPresent] = useState(0);
+  const [total, setTotal] = useState(0);
   const [curr_student, setcurr_student] = useState(null);
+  const [datar, setDatar] = useState([]);
+
+
   let studentarr = [];
   let coursename = "";
 
-  const getstudent =  () => {
+  const getstudent = () => {
     try {
       if (courses) {
-        studentarr =  courses.filter((i) => i._id === courseId);
+        studentarr = courses.filter((i) => i._id === courseId);
         setCourseName(studentarr[0].name);
         setAllStudents(studentarr[0].students);
         let curr_stud = studentarr[0].students.filter(
@@ -39,19 +43,50 @@ export const StudentDashboard = ({ courses }) => {
     }
   };
 
-  const piechartupdate=async()=>{
-    const res= await getstudentattendence(courseId, curr_student.email);
-    setTotal(res.sessionsCount);
-    setPresent(res.attendanceCount);
+  const piechartupdate = async () => {
+
+    if(curr_student){
+      const res = await getstudentattendence(courseId, curr_student.email);
+      setPieData({
+        datasets: [
+          {
+            data: [total, present],
+            backgroundColor: ["red", "blue"],
+          },
+        ],
+    
+        labels: ["Absent", "Present"],
+      })
+  
+      setTotal(Number(res.sessionsCount));
+      setPresent(Number(res.attendanceCount));
+      setDatar([Number(total), Number(total - present)]);
+    }
+    else{
+      console.log("wait");
+    }
    
-  }
+  };
+  const initials = {
+    datasets: [
+      {
+        data: [total-present, present],
+        backgroundColor: ["red", "blue"],
+      },
+    ],
+
+    labels: ["Absent", "Present"],
+  };
+  const [piedata, setPieData] = useState(initials);
 
   useEffect(() => {
-     getstudent();
-    
+    getstudent();
   }, [courses]);
 
- 
+  useEffect(()=>{
+    piechartupdate()
+  },[total,curr_student]);
+
   return (
     <div className="page_layout">
       <Nav section={3} />
@@ -81,15 +116,16 @@ export const StudentDashboard = ({ courses }) => {
           </div>
           <div className="student-dashboard-down">
             <div className="student-dashboard-chart">
-              <Piechart present={present} absent={total} />
+             { curr_student ?<Piechart piedata={piedata} />:<>Loading...</>
+}
               <div className="student-dashboard-attendence-info">
                 <p onClick={piechartupdate}>
                   {" "}
-                  Present: &nbsp;<span className="white">{courses.length}</span>
+                  Present: &nbsp;<span className="white">{present}</span>
                 </p>
                 <p>
                   {" "}
-                  Total: &nbsp; <span className="white">{courses.length}</span>
+                  Total :  &nbsp;&nbsp; <span className="white">{total}</span>
                 </p>
               </div>
             </div>
