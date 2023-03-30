@@ -22,14 +22,6 @@ export const GenerateSession2 = () => {
     }
   }, [courses]);
 
-  // window.onbeforeunload = function () {
-  //     return () => {
-  //         if (session) {
-  //             // console.log("es closed")
-  //             session.close()
-  //         }
-  //     }
-  // };
   useEffect(() => {
     setIsRendered(true);
   }, []);
@@ -44,7 +36,9 @@ export const GenerateSession2 = () => {
   const generateQR = async (event) => {
     const data1 = JSON.parse(event.data);
     // console.log(data1)
-
+    if (data1.attendance != null) {
+      console.log(data1.message);
+    }
     const data = {
       session_id: data1.id,
       nonce: data1.nonce,

@@ -13,7 +13,6 @@ import Homepage from "../routes/homepage";
 import GoogleLogin from "../routes/GoogleLogin";
 import theme from "../utils/AppTheme";
 import { UserContext, UserContextProvider } from "../utils/UserContext";
-import GenerateSession from "../routes/GenerateSession";
 import Footer from "../components/footer";
 import { Login } from "../routes/Login";
 import { Dashboard } from "../routes/Dashboard";

@@ -7,7 +7,6 @@ import '../stylesheets/Nav.css'
 const Nav = ({section}) => {
   let navigate = useNavigate();
   const [user, setUser] = React.useContext(UserContext);
-  console.log(user.picture);
   const handleLogout = async () => {
     await logout(setUser);
     return navigate("/");
