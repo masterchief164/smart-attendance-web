@@ -25,7 +25,8 @@ import { CourseForm } from "../routes/CourseForm";
 import { StudentForm } from "../routes/StudentForm";
 import { Setting } from "../routes/Setting";
 import { StudentDashboard } from "../routes/StudentDashboard";
-
+import { AdminForm } from "../routes/Adminform";
+import { AdminBoard } from "../routes/AdminBoard";
 function App() {
   const [user, setUser, courses, setCourses] = React.useContext(UserContext);
   useEffect(() => {
@@ -77,6 +78,16 @@ function App() {
                 element={user ? <Setting /> : <Navigate to="/login" />}
               />
               {/* <Route exact path="/generateSession" element={<GenerateSession />} /> */}
+              <Route
+                exact
+                path="/adminlogin"
+                element={ <AdminForm/>}
+              />
+               <Route
+                exact
+                path="/admin"
+                element={user ? <AdminBoard /> : <Navigate to="/404" />}
+              />
 
 
               <Route exact path="/google" element={<GoogleLogin />} />

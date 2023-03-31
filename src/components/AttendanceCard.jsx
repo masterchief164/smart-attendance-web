@@ -6,14 +6,13 @@ const AttendanceCard = (student) => {
  
   
   const [user, setUser, courses, setCourses] = React.useContext(UserContext);
-  // console.log("student",student);
+
 const [courseID,setCourseId]=useState(useParams().id)
-  // let student=student.student;
 
 
   const cstud=student.student;
 
-  // console.log("cstud",cstud);
+
 
   console.log(student.student._id);
   let navigate =useNavigate();

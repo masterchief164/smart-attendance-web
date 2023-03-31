@@ -30,22 +30,7 @@ export const Attendance = () => {
     getstudents();
   }, [courses]);
 
-  // useEffect(() => {
-  //   getAttendance(courseId).then((c) => {
-  //     // console.log(c);
-  //     setAttendance(c);
-  //   });
-  // }, []);
-  // useEffect(() => {
-  //   if (courses != null) {
-  //     var result = courses.find((obj) => {
-  //       return obj._id === courseId;
-  //     });
-  //     // console.log(result);
-  //     if (!result) navigate("404");
-  //     else setStudents(result.students.length);
-  //   }
-  // }, [courses]);
+
 
   return (
     <div className="page_layout">
@@ -53,7 +38,7 @@ export const Attendance = () => {
       <div className="page_content">
         <div className="attendance">
           <h2>CSE department</h2>
-          <h4>Attendence</h4>
+          <h4>Attendees</h4>
 
           {students ? (
             <div className="attendance-card-container">
