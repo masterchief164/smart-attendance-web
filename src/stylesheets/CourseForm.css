@@ -36,7 +36,7 @@
   position: relative;
 }
 
-.course-form .course-details-box input {
+.course-form .course-details-box input,.course-form .course-details-box textarea {
   width: 100%;
   padding: 10px 0;
   font-size: 16px;
@@ -59,7 +59,9 @@
 }
 
 .course-form .course-details-box input:focus ~ label,
-.course-form .course-details-box input:valid ~ label {
+.course-form .course-details-box input:valid ~ label,
+.course-form .course-details-box textarea:focus ~ label,
+.course-form .course-details-box textarea:valid ~ label {
   top: -20px;
   left: 0;
   color: #03e9f4;

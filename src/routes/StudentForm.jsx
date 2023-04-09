@@ -10,36 +10,33 @@ export const StudentForm = () => {
   const navigateBack = () => {
     Navigate("/");
   };
- 
+
   const [user, setUser, courses, setCourses] = React.useContext(UserContext);
   const [courseId, setCourseId] = useState(useParams().id);
-const [email, setEmail] = useState("")
+  const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(courses == null);
 
+  useEffect(() => {
+    if (courses != null) {
+      setLoading(false);
+      if (!courses.some((k) => k._id == courseId)) {
+        navigate("/404");
+      }
+    }
+  }, [courses]);
 
-  // useEffect(() => {
-  //   if (courses != null) {
-  //     setLoading(false);
-  //     if (!courses.some((k) => k._id == courseId)) {
-  //       navigate("/404");
-  //     }
-  //   }
-  // }, [courses]);
-
-
- 
-
-
-  const submit=async()=>{
+  const submit = async () => {
     console.log(email);
-   await addStudent(courseId,email);
-   setEmail("");
-  
+    const emails=email.split(/\r?\n/);
+    await addStudent(courseId, emails);
+
+    setEmail("");
+
     // findStudent(email).then((k)=>{
     //   if(!k)window.alert("Student with this email dosen't exist");
     //   else addStudent().then();
     // })
-  }
+  };
   return (
     <div className="course-form-body">
       {loading ? (
@@ -49,7 +46,14 @@ const [email, setEmail] = useState("")
           <h2>Add Student</h2>
           <form>
             <div className="course-details-box">
-              <input type="text" name="name" value={email} onChange={(e)=>{setEmail(e.target.value)}}/>
+              <textarea
+                type="textarea"
+                name="name"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
               <label>Student Id</label>
             </div>
             <div className="course-details-box">

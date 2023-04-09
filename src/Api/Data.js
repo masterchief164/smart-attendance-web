@@ -102,6 +102,31 @@ const getstudentattendence = async (courseId, studentEmailId) => {
   }
 };
 
+const adminLogin=async(username,password)=>{
+  try {
+    const body = {
+      username,
+      password
+    };
+    const res = await axios.post(`${baseURL}/admin/login`, body, { withCredentials: true });
+    localStorage.setItem("loggedIn", JSON.stringify(res.data));
+    return res.data
+    // setCourses((prev) => [...prev, res.data]);
+  } catch (error) {
+    console.log(error);
+  }
+}
+const getallusers=async()=>{
+  try {
+    const res = await axios.get(`${baseURL}/admin/allusers`, {
+      withCredentials: true,
+    });
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export {
   getstudentattendence,
   sendAuthorizationCode,
@@ -111,4 +136,6 @@ export {
   getAttendance,
   findStudent,
   addStudent,
+  adminLogin,
+  getallusers
 };

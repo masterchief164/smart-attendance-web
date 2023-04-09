@@ -50,7 +50,7 @@ export const StudentDashboard = ({ courses }) => {
       setPieData({
         datasets: [
           {
-            data: [total, present],
+            data: [total-present, present],
             backgroundColor: ["red", "blue"],
           },
         ],
@@ -60,7 +60,7 @@ export const StudentDashboard = ({ courses }) => {
   
       setTotal(Number(res.sessionsCount));
       setPresent(Number(res.attendanceCount));
-      setDatar([Number(total), Number(total - present)]);
+      setDatar([Number(total)]);
     }
     else{
       console.log("wait");

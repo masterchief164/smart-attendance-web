@@ -35,8 +35,9 @@ export const Setting = () => {
             
           </div>
         </div>
+        
         <div className="setting-up-2">
-        <div className="setting-details">
+        {/* <div className="setting-details">
             <p>
               Number of Courses : &nbsp;
               <span className="white">{courses.length}</span>
@@ -48,7 +49,7 @@ export const Setting = () => {
            
           
             
-          </div>
+          </div> */}
         
         </div>
       </div>
