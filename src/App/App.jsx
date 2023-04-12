@@ -25,7 +25,7 @@ import { CourseForm } from "../routes/CourseForm";
 import { StudentForm } from "../routes/StudentForm";
 import { Setting } from "../routes/Setting";
 import { StudentDashboard } from "../routes/StudentDashboard";
-import { AdminForm } from "../routes/Adminform";
+import { AdminForm } from "../routes/AdminForm";
 import { AdminBoard } from "../routes/AdminBoard";
 function App() {
   const [user, setUser, courses, setCourses] = React.useContext(UserContext);
