@@ -57,3 +57,19 @@
 .admin_board-card-1 div{
   float: right;
 }
+.modal-select select,.modal-select options{
+  width: 70%;
+  margin-left: 8px;
+}
+.modal{
+  padding: 30px 30px 10px 10px;
+}
+.modal div{
+  margin-bottom: 8px;
+}
+.modal button{
+  padding: 6px 10px;
+  display: block;
+  margin: auto;
+  margin-top: 30px;
+}

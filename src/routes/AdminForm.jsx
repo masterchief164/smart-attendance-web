@@ -11,7 +11,6 @@ export const AdminForm = () => {
   const [user, setUser, courses, setCourses] = React.useContext(UserContext);
   let Navigate = useNavigate();
   const navigateback = () => {
-    console.log("press");
     console.log(adminId, adminpass);
     Navigate("/");
   };
@@ -21,7 +20,6 @@ export const AdminForm = () => {
 
 
   const login = () => {
-    console.log("press");
     console.log(adminId, adminpass);
     adminLogin(adminId,adminpass).then(async(usr)=>{await setUser(usr);Navigate('/admin')})
   };
