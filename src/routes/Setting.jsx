@@ -6,8 +6,7 @@ import Nav from "../components/Nav";
 
 export const Setting = () => {
   let Navigate = useNavigate();
-  const [user, setUser, courses, setCourses] = React.useContext(UserContext);
-
+  const [user, setUser, courses, setCourses,currUser] = React.useContext(UserContext);
   const addcourse = () => {
     Navigate("/addcourse");
   };
@@ -21,15 +20,15 @@ export const Setting = () => {
           <div className="setting-details">
             <p>
               Name : &nbsp;
-              <span className="white">{user.name}</span>
+              <span className="white">{currUser.name}</span>
             </p>
             <p>
-              Roll ID : &nbsp;
-              <span className="white">{user.roll}</span>
+              Email : &nbsp;
+              <span className="white">{currUser.email}</span>
             </p>
             <p>
               Account Type : &nbsp;
-              <span className="white">Instructor</span>
+              <span className="white">{currUser.type}</span>
             </p>
           
             

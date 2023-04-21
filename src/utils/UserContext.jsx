@@ -9,9 +9,10 @@ export const UserContextProvider = ({ children }) => {
         new Date().getTime())?JSON.parse(localStorage.getItem("loggedIn")):null
   );
   const [courses, setCourses] = React.useState(null);
+  const [currUser, setCurrUser] = React.useState(user)
   return (
     <UserContext.Provider
-      value={[user, setUser, courses, setCourses]}
+      value={[user, setUser, courses, setCourses,currUser,setCurrUser]}
     >
       {children}
     </UserContext.Provider>

@@ -126,7 +126,21 @@ const getallusers=async()=>{
     console.log(error);
   }
 }
-
+const updateRole = async (userId,role) => {
+  try {
+    const body = {
+      role: role,
+    };
+    const res = await axios.patch(`${baseURL}/admin/user/${userId}`, body, {
+      withCredentials: true,
+    });
+    console.log(res);
+    return true
+  } catch (error) {
+    console.log(error);
+    return false
+  }
+};
 export {
   getstudentattendence,
   sendAuthorizationCode,
@@ -137,5 +151,6 @@ export {
   findStudent,
   addStudent,
   adminLogin,
-  getallusers
+  getallusers,
+  updateRole
 };
