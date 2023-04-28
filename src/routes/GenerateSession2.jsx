@@ -52,7 +52,7 @@ export const GenerateSession2 = () => {
     // console.log(data1)
     if (data1.attendance != null) {
       console.log(data1.message);
-      notification(data1.message);
+      notification(data1.message.name);
     }
     const data = {
       session_id: data1.id,
