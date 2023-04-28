@@ -5,7 +5,21 @@ import { UserContext } from "../utils/UserContext";
 import QRCode from "qrcode";
 import defaultqr from "../assets/defaultqr.png";
 import Nav from "../components/Nav";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export const GenerateSession2 = () => {
+  const notification = (message) => {
+    toast.success(message, {
+      position: "bottom-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  };
   const [courseId, setCourseId] = useState(useParams().id);
   const [user, setUser, courses, setCourses] = React.useContext(UserContext);
   const [loading, setLoading] = useState(courses == null);
@@ -38,6 +52,7 @@ export const GenerateSession2 = () => {
     // console.log(data1)
     if (data1.attendance != null) {
       console.log(data1.message);
+      notification(data1.message.name);
     }
     const data = {
       session_id: data1.id,
@@ -67,15 +82,16 @@ export const GenerateSession2 = () => {
   const stopSessionHandler = async () => {
     session.close();
     setQr(null);
-    console.log("es closed")
+    console.log("es closed");
   };
   return (
     <div className="page_layout">
       {loading ? (
         <h1>Loading...</h1>
-      ) : (
-        <>
+        ) : (
+          <>
           <Nav />
+          <ToastContainer />
           <div className="page_content">
             <div className="generate_session_container">
               <div className="qr">
