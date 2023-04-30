@@ -26,6 +26,7 @@ const SessionCard = ({ date, attendees, sessionId, students }) => {
       result.push(element[Object.keys(element)[0]]);
     }
     let final = students.map((at) => {
+      console.log(at);
       if (result.includes(at._id)) {
         return { Name: at.name, RollNo: at.roll, attendance: "P" };
       } else {
