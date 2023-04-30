@@ -20,15 +20,15 @@ export const Setting = () => {
           <div className="setting-details">
             <p>
               Name : &nbsp;
-              <span className="white">{currUser.name}</span>
+              <span className="white">{user.name}</span>
             </p>
             <p>
               Email : &nbsp;
-              <span className="white">{currUser.email}</span>
+              <span className="white">{user.email}</span>
             </p>
             <p>
               Account Type : &nbsp;
-              <span className="white">{currUser.type}</span>
+              <span className="white">{user.userType}</span>
             </p>
           
             

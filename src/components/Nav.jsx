@@ -23,14 +23,10 @@ const Nav = ({section}) => {
             <AiFillApple />
             Courses
           </Link>
-          <Link to="/attendance">
-            <AiFillApple />
-            Attendance
-          </Link>
 
           <Link to="/setting">
             <AiFillApple />
-            Settings
+            Profile
           </Link>
           <Link onClick={handleLogout}>
             <AiFillApple />

@@ -6,14 +6,15 @@ import { listSessions } from "../Api/Data";
 const CourseCard = ({courseId,course}) => {
   const [user, setUser, courses, setCourses,currCourse,setCurrCourse] = React.useContext(UserContext);
   // console.log(course);
+  const [isDisabled, setIsDisabled] = React.useState(course.instructor.name===user.name)
   return (
     <div className="course-card">
       <div className="course-card-icon">
         <BsThreeDotsVertical />
         <div className="dropdown">
           <Link to={`/attendance/${course._id}`}>Check Attendance</Link><hr/>
-         {user.userType!=="student"&& <><Link to={`/generatesession/${course._id}`}>Generate Session</Link><hr/></>}
-         {user.userType!=="student"&& <><Link to={`/addstudent/${course._id}`}>Add student</Link><hr/></>}
+         {user.userType!=="student"&& isDisabled&&<><Link to={`/generatesession/${course._id}`}>Generate Session</Link><hr/></>}
+         {user.userType!=="student"&& isDisabled&&<><Link to={`/addstudent/${course._id}`}>Add student</Link><hr/></>}
          {user.userType!=="student"&& <><Link to={`/sessions/${course._id}`} onClick={()=>{setCurrCourse(course.name)}}>View Sessions</Link></>}
         </div>
       </div>

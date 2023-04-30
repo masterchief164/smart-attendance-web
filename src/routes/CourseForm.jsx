@@ -43,14 +43,10 @@ export const CourseForm = () => {
           </div>
 
           <div className="course-details-box">
-            <input type="text" name="" />
+            <input type="text" name="" value={user.name} />
             <label>Instructor</label>
           </div>
 
-          <div className="course-details-box">
-            <input type="text" name="" />
-            <label>Students</label>
-          </div>
 
           <div className="course-buttons">
             <a onClick={createCourse}>
