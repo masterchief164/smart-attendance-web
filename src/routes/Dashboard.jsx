@@ -26,10 +26,10 @@ export const Dashboard = () => {
               courses.map((c) => {
                 return <CourseCard course={c} key={c._id} />;
               })}
-            <div className="course-card course-add" onClick={addcourse}>
+           {user.userType!=="student"&& <div className="course-card course-add" onClick={addcourse}>
               <GoPlus/>
               <p>Add Course</p>
-            </div>
+            </div>}
           </div>
         </div>
       </div>

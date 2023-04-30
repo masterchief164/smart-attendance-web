@@ -29,12 +29,18 @@ import { AdminForm } from "../routes/AdminForm";
 import { AdminBoard } from "../routes/AdminBoard";
 function App() {
   const [user, setUser, courses, setCourses] = React.useContext(UserContext);
+
+
   useEffect(() => {
     if(user!==null&&courses==null)
     getCourses().then((c) => {
       setCourses(c);
     });
+    
   }, [user]);
+
+
+
   return (
     <ThemeProvider theme={theme}>
 

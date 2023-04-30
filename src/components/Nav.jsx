@@ -11,10 +11,11 @@ const Nav = ({section}) => {
     await logout(setUser);
     return navigate("/");
   };
+  let url="https://media.istockphoto.com/id/1016744034/vector/profile-placeholder-image-gray-silhouette-no-photo.jpg?s=612x612&w=0&k=20&c=Rqti26VQj_fs-_hL15mJj6b84FEZNa00FJgZRaG5PD4=";
   return (
     <div className="nav_container">
       <div className="nav">
-        <img className="profileimg" src={user.picture} alt="" />
+        <img className="profileimg" src={user.picture || url} alt="" />
         <h4>{user.name}</h4>
         <h5>{user.roll}</h5>
         <div className="nav_links " >
