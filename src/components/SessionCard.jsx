@@ -2,52 +2,23 @@ import React from "react";
 import "../stylesheets/SessionCard.css";
 import { AiOutlineDownload } from "react-icons/ai";
 import { getAttendees } from "../Api/Data";
+import * as XLSX from "xlsx";
+
 const SessionCard = ({ date, attendees, sessionId, students }) => {
   function getDate(date) {
-    var months = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
-
-    return (
-      months[date.getUTCMonth()] +
-      " " +
-      date.getUTCDate() +
-      ", " +
-      date.getUTCFullYear()
-    );
+    const datetemp = new Date(date);
+    return datetemp.toLocaleString("en-GB");
   }
-  const downloadFile = (data) => {
-    const blob = new Blob([data], { type: "text/csv" });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.setAttribute("href", url);
-    a.setAttribute("download", `${getDate(new Date(Date.parse(date)))}.csv`);
-    a.click();
+
+  const downloadxls = (data) => {
+    let ws = XLSX.utils.json_to_sheet(data);
+    let wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "sheet");
+    let buf = XLSX.write(wb, { bookType: "xlsx", type: "buffer" }); // generate a nodejs buffer
+    let str = XLSX.write(wb, { bookType: "xlsx", type: "binary" }); // generate a binary string in web browser
+    XLSX.writeFile(wb, `${getDate(new Date(Date.parse(date)))}.xlsx`);
   };
-  const objectToCsv = function (data) {
-    const csvRows = [];
-    const headers = Object.keys(data[0]);
-    csvRows.push(headers.join(','));
-    for (const row of data) {
-        const values = headers.map(header => {
-            const val = row[header]
-            return `"${val}"`;
-        });
-        csvRows.push(values.join(','));
-    }
-    return csvRows.join('\n');
-};
+
   const dwd = (atnd) => {
     var result = [];
     for (let index = 0; index < atnd.length; index++) {
@@ -61,7 +32,7 @@ const SessionCard = ({ date, attendees, sessionId, students }) => {
         return { Name: at.name, RollNo: at.roll, attendance: "A" };
       }
     });
-    downloadFile(objectToCsv(final));
+    downloadxls(final);
   };
   const download = () => {
     getAttendees(sessionId).then((data) => {
