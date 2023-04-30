@@ -2,9 +2,10 @@ import React from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { UserContext } from "../utils/UserContext";
+import { listSessions } from "../Api/Data";
 const CourseCard = ({courseId,course}) => {
-  const [user, setUser, courses, setCourses] = React.useContext(UserContext);
-  console.log(course);
+  const [user, setUser, courses, setCourses,currCourse,setCurrCourse] = React.useContext(UserContext);
+  // console.log(course);
   return (
     <div className="course-card">
       <div className="course-card-icon">
@@ -12,7 +13,8 @@ const CourseCard = ({courseId,course}) => {
         <div className="dropdown">
           <Link to={`/attendance/${course._id}`}>Check Attendance</Link><hr/>
          {user.userType!=="student"&& <><Link to={`/generatesession/${course._id}`}>Generate Session</Link><hr/></>}
-         {user.userType!=="student"&& <><Link to={`/addstudent/${course._id}`}>Add student</Link></>}
+         {user.userType!=="student"&& <><Link to={`/addstudent/${course._id}`}>Add student</Link><hr/></>}
+         {user.userType!=="student"&& <><Link to={`/sessions/${course._id}`} onClick={()=>{setCurrCourse(course.name)}}>View Sessions</Link></>}
         </div>
       </div>
       <div className="course-card-1">

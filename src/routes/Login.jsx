@@ -26,7 +26,7 @@ export const Login = () => {
       }}
     >
       <div className="login_box">
-        <h2 className="loging_heading" style={{marginTop:"15px"}}>Login to AppName</h2>
+        <h2 className="loging_heading" style={{marginTop:"15px"}}>Login to Smart Attendance</h2>
         <div className="glogin" style={{marginTop:"65px"}}  onClick={handleGoogleSignIn}>
           <FcGoogle className="gicon" />
          Login with google
