@@ -27,6 +27,7 @@ import { Setting } from "../routes/Setting";
 import { StudentDashboard } from "../routes/StudentDashboard";
 import { AdminForm } from "../routes/AdminForm";
 import { AdminBoard } from "../routes/AdminBoard";
+import Sessions from "../routes/Sessions";
 function App() {
   const [user, setUser, courses, setCourses] = React.useContext(UserContext);
 
@@ -72,6 +73,11 @@ function App() {
                 exact
                 path="/addstudent/:id"
                 element={user ? <StudentForm /> : <Navigate to="/login" />}
+              />
+               <Route
+                exact
+                path="/sessions/:id"
+                element={user ? <Sessions /> : <Navigate to="/login" />}
               />
                 <Route
                 exact

@@ -105,7 +105,7 @@ export const StudentDashboard = ({ courses }) => {
                 <span className="white">{curr_student.roll}</span>
               </p>
               <p>
-                Arrount Type : &nbsp;
+                Account Type : &nbsp;
                 <span className="white">{curr_student.userType}</span>
               </p>
               <p>

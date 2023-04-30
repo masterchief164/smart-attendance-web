@@ -10,9 +10,10 @@ export const UserContextProvider = ({ children }) => {
   );
   const [courses, setCourses] = React.useState(null);
   const [currUser, setCurrUser] = React.useState(user)
+  const [currCourse, setCurrCourse] = React.useState(null)
   return (
     <UserContext.Provider
-      value={[user, setUser, courses, setCourses,currUser,setCurrUser]}
+      value={[user, setUser, courses, setCourses,currUser,setCurrUser,currCourse,setCurrCourse]}
     >
       {children}
     </UserContext.Provider>

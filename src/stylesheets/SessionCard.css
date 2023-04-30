@@ -1,0 +1,19 @@
+.session-card {
+  width: calc(50% - 20px);
+  padding: 10px;
+  border: 2px solid black;
+  margin: 10px;
+  background-color: white;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  justify-content:space-between;
+}
+.session-card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.download-icon {
+  font-size: 30px;
+  cursor: pointer;
+}

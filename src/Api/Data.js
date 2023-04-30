@@ -134,11 +134,30 @@ const updateRole = async (userId,role) => {
     const res = await axios.patch(`${baseURL}/admin/user/${userId}`, body, {
       withCredentials: true,
     });
-    console.log(res);
     return true
   } catch (error) {
     console.log(error);
     return false
+  }
+};
+const listSessions=async (courseId) => {
+  try {
+    const res = await axios.get(`${baseURL}/session/allsessions/${courseId}`, {
+      withCredentials: true,
+    });
+    return res.data
+  } catch (error) {
+    console.log(error);
+  }
+};
+const getAttendees=async (sessionId) => {
+  try {
+    const res = await axios.get(`${baseURL}/session/attendees/${sessionId}`, {
+      withCredentials: true,
+    });
+    return res.data
+  } catch (error) {
+    console.log(error);
   }
 };
 export {
@@ -152,5 +171,7 @@ export {
   addStudent,
   adminLogin,
   getallusers,
-  updateRole
+  updateRole,
+  listSessions,
+  getAttendees
 };
