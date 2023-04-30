@@ -3,27 +3,6 @@ import "../stylesheets/SessionCard.css";
 import { AiOutlineDownload } from "react-icons/ai";
 import { getAttendees } from "../Api/Data";
 const SessionCard = ({ date, attendees, sessionId, students }) => {
-  const downloadFile = (data) => {
-    const blob = new Blob([data], { type: "text/csv" });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.setAttribute("href", url);
-    a.setAttribute("download", "download.csv");
-    a.click();
-  };
-  const objectToCsv = function (data) {
-    const csvRows = [];
-    const headers = Object.keys(data[0]);
-    csvRows.push(headers.join(','));
-    for (const row of data) {
-        const values = headers.map(header => {
-            const val = row[header]
-            return `"${val}"`;
-        });
-        csvRows.push(values.join(','));
-    }
-    return csvRows.join('\n');
-};
   function getDate(date) {
     var months = [
       "Jan",
@@ -48,6 +27,27 @@ const SessionCard = ({ date, attendees, sessionId, students }) => {
       date.getUTCFullYear()
     );
   }
+  const downloadFile = (data) => {
+    const blob = new Blob([data], { type: "text/csv" });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.setAttribute("href", url);
+    a.setAttribute("download", `${getDate(new Date(Date.parse(date)))}.csv`);
+    a.click();
+  };
+  const objectToCsv = function (data) {
+    const csvRows = [];
+    const headers = Object.keys(data[0]);
+    csvRows.push(headers.join(','));
+    for (const row of data) {
+        const values = headers.map(header => {
+            const val = row[header]
+            return `"${val}"`;
+        });
+        csvRows.push(values.join(','));
+    }
+    return csvRows.join('\n');
+};
   const dwd = (atnd) => {
     var result = [];
     for (let index = 0; index < atnd.length; index++) {

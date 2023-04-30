@@ -1,13 +1,13 @@
 .session-card {
   width: calc(50% - 20px);
   padding: 10px;
-  border: 2px solid black;
   margin: 10px;
   background-color: white;
   border-radius: 8px;
   position: relative;
   display: flex;
   justify-content:space-between;
+  align-items: center;
 }
 .session-card-container {
   display: flex;

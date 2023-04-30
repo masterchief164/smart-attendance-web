@@ -54,12 +54,12 @@ export const StudentForm = () => {
                   setEmail(e.target.value);
                 }}
               />
-              <label>Student Id</label>
+              <label>Student Email Ids</label>
             </div>
-            <div className="course-details-box">
+            {/* <div className="course-details-box">
               <input type="text" name="" />
               <label>Student Name</label>
-            </div>
+            </div> */}
 
             <div className="course-buttons">
               <a onClick={submit}>

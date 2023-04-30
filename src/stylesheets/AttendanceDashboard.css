@@ -23,6 +23,7 @@
   margin: 1rem 6% 1rem 0%;
   position: relative;
   max-width: 40%;
+  cursor: pointer;
 }
 .attendance-card-1 {
   display: flex;
